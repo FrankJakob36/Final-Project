@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Compose Music!{% endblock %}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .keyboard {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px;
+        }
+        .key {
+            padding: 20px;
+            margin: 5px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 60px;
+            text-align: center;
+        }
+        .key:hover {
+            background-color: #0056b3;
+        }
+        .controls {
+            margin: 20px;
+        }
+        .controls button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .controls button:hover {
+            background-color: #218838;
+        }
+        .composition {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Compose Your Music 🎶</h1>
+    <div class="keyboard">
+        <!-- Buttons for notes -->
+        <button class="key" onclick="addNoteAndPlay('C')">C</button> 
+        <button class="key" onclick="addNoteAndPlay('D')">D</button>
+        <button class="key" onclick="addNoteAndPlay('E')">E</button>
+        <button class="key" onclick="addNoteAndPlay('F')">F</button>
+        <button class="key" onclick="addNoteAndPlay('G')">G</button>
+        <button class="key" onclick="addNoteAndPlay('A')">A</button>
+        <button class="key" onclick="addNoteAndPlay('B')">B</button>
+    </div>
+
+    <!-- Control buttons -->
+    <div class="controls">
+        <button onclick="playComposition()">Play Composition</button>
+        <button onclick="saveComposition()">Save Composition</button>
+        <button onclick="newComposition()">New Composition</button>
+    </div>
+
+    <!-- Display current composition -->
+    <div class="composition" id="composition">Current Composition: None</div>
+
+    <!-- Include the external JavaScript file -->
+     <!-- Load static files -->
+     {% load static %}
+    
+     <!-- Link to the JavaScript file -->
+     <script src="{% static 'my_app/greet.js' %}"></script>
+    <footer>
+        <h2>Created By Frank Jakob</h2>
+        <h3>Want to save your music? Make an account  <!-- Link to Login Page -->
+            <a href="/login/">Click Here To Create Your Account!</a></h3>
+    </footer>
+</body>
+</html>
